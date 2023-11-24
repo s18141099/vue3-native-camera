@@ -14,10 +14,10 @@ const emits = defineEmits<{
 }>()
 
 defineExpose({
-    onOpen,
+    open,
 })
 
-function onOpen(): void {
+function open(): void {
     setTimeout(() => {
         camera.value?.click()
     }, timeout)
