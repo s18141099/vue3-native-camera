@@ -1,11 +1,15 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
+import Compressor from './Compressor'
+
 const camera = ref<HTMLInputElement | null>()
 
-const { timeout } = withDefaults(defineProps<{
-    timeout: number
+const { quality, timeout } = withDefaults(defineProps<{
+    quality: number,
+    timeout?: number
 }>(), {
+    quality: 1,
     timeout: 300
 })
 
@@ -30,9 +34,12 @@ function onChange(e: Event): void {
 
     const fReader = new FileReader()
     fReader.readAsDataURL(files[0])
-    fReader.onload = (event) => {
+    fReader.onload = async (event) => {
         const result = (event.target as FileReader).result
-        emits("onSnapshot", String(result))
+        const compressor = new Compressor({ dataURL: String(result), quality })
+        const dataURL = await compressor.compression()
+
+        emits("onSnapshot", dataURL)
     }
 }
 </script>
