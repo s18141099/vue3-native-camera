@@ -52,6 +52,13 @@ const onSnapshot = (base64: string) => {
 </template>
 ```
 
+## Props
+
+### `quality`
+
+This is the compression ratio. Please specify a number in the range of 1 or less as a number type.
+The default is 1.
+
 ## Expose
 
 ### `open`
