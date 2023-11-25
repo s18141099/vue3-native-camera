@@ -23,15 +23,14 @@
     "vue",
     "vue3",
     "camera",
-    "webcam",
-    "webcamera"
+    "native"
   ],
   "scripts": {
     "dev": "vite",
     "build": "run-p type-check \"build-only {@}\" --",
     "preview": "vite preview",
     "build-only": "vite build",
-    "type-check": "vue-tsc --noEmit -p tsconfig.app.json --composite false"
+    "type-check": "vue-tsc -p tsconfig.app.json --composite false"
   },
   "dependencies": {
     "vite-plugin-css-injected-by-js": "^3.3.0",
