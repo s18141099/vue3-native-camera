@@ -1,11 +1,12 @@
 {
   "name": "vue3-native-camera",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "private": false,
   "repository": {
     "type": "github",
     "url": "https://github.com/s18141099/vue3-native-camera"
   },
+  "license":"MIT",
   "main": "./dist/index.umd.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
