@@ -1,8 +1,8 @@
 # vue3-native-camera
 
-![demo](./demo.jpg)
-
 Vue 3 Native Camera is a Vue.js 3 plugin that allows you to access the native camera functionality on devices such as iPhones and capture photos. The captured photos can be obtained in base64 format.
+
+![demo](./demo.jpg)
 
 ## Installation
 
