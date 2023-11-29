@@ -13,8 +13,11 @@ export default class Compressor {
         document.querySelector("body")?.appendChild(this.canvas)
     }
 
-    public compression = async (): Promise<string> => {
-        return await this.draw()
+    public compression = async () => {
+        const result = await this.draw()
+        this.remove()
+
+        return result
     }
 
     private draw = (): Promise<string> => new Promise((resolve: (value: string) => void) => {
@@ -33,4 +36,8 @@ export default class Compressor {
             return resolve(dataURL)
         }
     })
+
+    private remove = () => {
+        this.canvas.remove()
+    }
 }
