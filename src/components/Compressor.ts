@@ -7,20 +7,17 @@ export default class Compressor {
         this.image = new Image()
         this.image.src = dataURL
 
-        this.quality = quality > 1 ? 1 : quality
+        this.quality = (quality > 1 || quality < 0.1) ? 1 : quality
 
         this.canvas = document.createElement('canvas')
         document.querySelector("body")?.appendChild(this.canvas)
     }
 
-    public compression = async () => {
-        const result = await this.draw()
-        this.remove()
-
-        return result
+    public compression = async (): Promise<string> => {
+        return await this.draw()
     }
 
-    private draw = () => new Promise((resolve: (value: string) => void) => {
+    private draw = (): Promise<string> => new Promise((resolve: (value: string) => void) => {
         const canvas2d = this.canvas.getContext('2d')
 
         this.image.onload = () => {
@@ -33,11 +30,7 @@ export default class Compressor {
             canvas2d?.drawImage(this.image, 0, 0, width, height)
             const dataURL = this.canvas.toDataURL('image/jpeg')
 
-            resolve(dataURL)
+            return resolve(dataURL)
         }
     })
-
-    private remove = () => {
-        this.canvas.remove()
-    }
 }
