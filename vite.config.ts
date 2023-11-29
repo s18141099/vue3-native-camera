@@ -10,7 +10,7 @@ export default defineConfig({
   build: {
     lib: {
       entry: resolve(__dirname, './src/index.ts'),
-      name: 'vue3-camera',
+      name: 'vue3-native-camera',
       fileName: "index"
     },
     rollupOptions: {
